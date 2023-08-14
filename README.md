@@ -149,4 +149,4 @@ If we return to DC-1, we can test a few functions within Active Directory in reg
 <img src=https://i.imgur.com/0V375YL.png/>
 </p>
 
-<h2>We have now successfully set up Active Directory on our Domain Controller and Client. I hope this tutorial was helpful, if you have any questions or suggestions on how I can improve this guide, please feel free to contact me at: efblomquist@gmail.com</h2>
+<h4>We have now successfully set up Active Directory on our Domain Controller and Client. I hope this tutorial was helpful, if you have any questions or suggestions on how I can improve this guide, please feel free to contact me at: efblomquist@gmail.com</h4>
