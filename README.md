@@ -37,19 +37,32 @@ Repeat the steps for the Domain Controller VM. Resource Group shpuld be set to "
 </p>
 <img src=https://i.imgur.com/xCWoQ7e.png/>
 
-<h3>Step 4: </h3>
+<h3>Step 4: Set the Domain Controller to Static IP</h3>
 <p>
-Within the Virtual Machine page in Azure, select the DC-1 VM. Then select "Networking" -> Network Interface(mine is called dc-1533_z1) -> IP Configurations -> ipconfig1 -> Allocation should be set to Static. Make a note of the static IP for DC-1.
+Within the Virtual Machine page in Azure, select the DC-1 VM. Then select "Networking" -> Network Interface(mine is called dc-1533_z1) -> IP Configurations -> ipconfig1 -> Allocation should be set to Static. Make a note of the static IP for DC-1. Check in the Networking section of both VMs to ensure they are on the same virtual network.
 </p>
-<img src=/>
+<img src=https://i.imgur.com/l3FflcD.png/>
 
-<h3>Step 5: </h3>
+<h3>Step 5: Connecting to the VM via Remote Desktop Connection</h3>
 <p>
-
+Remote Desktop Connection is a program found on Windows that allows us to remotely access the VM we just created. First find Remote Desktop Connection via the Windows search bar, or type "MSTSC" into the command prompt. Next, enter the Public IP address for the Client-1 VM. This can be found on the "Virtual machines" page to the far right of the screen. You will be asked to enter the credentials you created for the VM.
 </p>
-<img src=/>
+<p>
+<img src=https://i.imgur.com/vRfL9WX.png/>
+</p>
+<br/>
 
-
+<h3>Step 6: Check connectivity with DC-1</h3>
+<p>
+Open the command line in the Client-1 VM. Enter the "ping -t" command using the private IP address of DC-1 we recorded in step 4. This will continually check for connectivity. It looks like the connection is timing out. 
+</p>
+<img src=https://i.imgur.com/RScDj5A.png/>
+<p>
+We'll have to access DC-1 and adjust some settings. Repeating the same process as we used for Client-1, log into DC-1 with RDP. Find the Windows Firewall by typing "firewall" into the serach bar or "mf.msc" into the "Run" app. Select Inbound Rules -> Sort by Protocol -> Enable both copies of "Core Networking Diagnostics - ICMP Echo Request (ICMPv4-In)". The ping command we are using runs on this protocol. If you check back to the Client-1 VM, the ping command should now be recieving repsonses from DC-1. Ctrl-C will stop the ping command.
+</p>
+</p>
+<img src=https://i.imgur.com/na6hNIf.png/>
+<p>
 
 
 
