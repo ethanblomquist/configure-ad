@@ -78,10 +78,15 @@ Double check the public IP and re-login to DC-1. In order to do this we will nee
 
 <h3>Step 9: Create User Accounts in Active Directory</h3>
 <p>
-The Server manager should still be open. Navigate to Tools -> Active Directory Users and Computers
+The Server manager should still be open. Navigate to Tools -> Active Directory Users and Computers -> Right click mydomain.com (Or whatever domain you chose) -> Organizational Unit -> Add an EMPLOYEES and ADMINS Organizational Unit -> Right Click ADMINS -> New -> User -> enter whatever information you prefer for this user
+<p>
+<img src=https://i.imgur.com/MK7P98s.png/>
 </p>
 <p>
-<img src=/>
+Within ADMIN right click Jane Doe -> Member Of -> Add -> Enter "domain" and Check Names -> Select Domain Admins -> Apply -> Logoff of DC-1 -> Relogin using mydomoain.com/jane_admin -> Enter the password you set for Jane Doe.
+</p>
+<p>
+<img src=https://i.imgur.com/ytOY086.png/>
 </p>
 
 <h3>Step 5: </h3>
