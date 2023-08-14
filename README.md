@@ -3,7 +3,7 @@
 </p>
 
 <h1>On-premises Active Directory Deployed in the Cloud (Azure)</h1>
-This tutorial outlines the implementation of on-premises Active Directory within Azure Virtual Machines.<br />
+Active Directory (AD) is a database and set of services that connect users with network resources. This tutorial is a guide to configuring Active Directory on the Microsoft Azure cloud service.
 
 <h2>Environments and Technologies Used</h2>
 
@@ -15,9 +15,7 @@ This tutorial outlines the implementation of on-premises Active Directory within
 <h2>Operating Systems Used </h2>
 
 - Windows Server 2022
-- Windows 10 (21H2)
-
-<h2>High-Level Deployment and Configuration Steps</h2>
+- Windows 10 (22H2)
 
 <h3>Step 1: Create the Active Directory Resource Group</h3>
 <p>
@@ -121,14 +119,14 @@ Ensure everything we have done is working. Return to the DC-1 VM -> Server Manag
 <img src=https://i.imgur.com/iJSoZUm.png/>
 </p>
 
-<h3>Step 11: </h3>
+<h3>Step 11: Create Users</h3>
 <p>
   Still logged into DC-1, Using the search bar, Open Powershell ISE as an administrator -> New File
   
 Using this [Github Link](https://github.com/joshmadakor1/AD_PS/blob/master/Generate-Names-Create-Users.ps1) link, copy and paste the code within the repository into Powershell. -> Go to line 43 of the code. Ensure the Path is set to ou=EMPLOYEES -> Run Script -> This script will create 10,000 random users that we can use to simulate an organization of real people. They will all be located in the EMPLOYEES OU within Active Directory.
 </p>
 <p>
-<img src=[https://i.imgur.com/kSrJUtI.png](https://i.imgur.com/l1DRT7W.png)/>
+<img src=https://i.imgur.com/l1DRT7W.png/>
 </p>
 <p>
 After Refreshing the Active Directory Users and Computers, we can select a random user within EMPLOYEES, I chose bafot.leq -> Sign out of Client-1 -> Using the same method as before, use the random user to log into Client-1 -> The password the script created for all the users is Password1
@@ -136,7 +134,19 @@ After Refreshing the Active Directory Users and Computers, we can select a rando
 <p>
 <img src=https://i.imgur.com/rsc4QYy.png/>
 </p>
+<p>
+You can observe within C:\Users that a new folder is created each time a new user first accesses the VM. 
+</p>
+<p>
+<img src=https://i.imgur.com/lzuDAUv.png/>
+</p>
 
+<h3>Step 12: Test Common User Account Actions</h3>
+<p>
+If we return to DC-1, we can test a few functions within Active Directory in regards to users. If, for example, a user attempts too many logins and their account locks, you can navigate to the EMPLOYEE OU -> bafor.leq(Whichever user is experiencing the issue) -> Account -> Check the Unlock Account box -> Apply. You can also reset user passwords, enable or disable their account, or move them to new Organizational Unit. These functions would all be useful in a variety or organizations
+</p>
+<p>
+<img src=https://i.imgur.com/0V375YL.png/>
+</p>
 
-
-<h2></h2>
+<h2>We have now successfully set up Active Directory on our Domain Controller and Client. I hope this tutorial was helpful, if you have any questions or suggestions on how I can improve this guide, please feel free to contact me at: efblomquist@gmail.com</h2>
