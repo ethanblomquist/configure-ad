@@ -123,12 +123,20 @@ Ensure everything we have done is working. Return to the DC-1 VM -> Server Manag
 
 <h3>Step 11: </h3>
 <p>
-  Still logged into DC-1, Open Powershell ISE as an administrator(Run -> powershell_ise.exe -> ctrl+shift+OK) -> New File
+  Still logged into DC-1, Using the search bar, Open Powershell ISE as an administrator -> New File
   
-Using this [Github Link](https://github.com/joshmadakor1/AD_PS/blob/master/Generate-Names-Create-Users.ps1) link, copy and paste the code within the repository into Powershell. -> Run Script -> This script will create 10,000 random users that we can use to simulate an organization of real people.
+Using this [Github Link](https://github.com/joshmadakor1/AD_PS/blob/master/Generate-Names-Create-Users.ps1) link, copy and paste the code within the repository into Powershell. -> Go to line 43 of the code. Ensure the Path is set to ou=EMPLOYEES -> Run Script -> This script will create 10,000 random users that we can use to simulate an organization of real people. They will all be located in the EMPLOYEES OU within Active Directory.
 </p>
 <p>
-<img src=https://i.imgur.com/kSrJUtI.png/>
+<img src=[https://i.imgur.com/kSrJUtI.png](https://i.imgur.com/l1DRT7W.png)/>
+</p>
+<p>
+After Refreshing the Active Directory Users and Computers, we can select a random user within EMPLOYEES, I chose bafot.leq -> Sign out of Client-1 -> Using the same method as before, use the random user to log into Client-1 -> The password the script created for all the users is Password1
+</p>
+<p>
+<img src=https://i.imgur.com/rsc4QYy.png/>
 </p>
 
-<h2>Deployment and Configuration Steps</h2>
+
+
+<h2></h2>
