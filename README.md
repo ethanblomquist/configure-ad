@@ -25,16 +25,29 @@ We will first need to create a Virtual Machine. To do this we will be using a a 
 </p>
 <img src=https://i.imgur.com/8NU0JbM.png/>
 
-<h3>Step 2: Create Virtual Machines</h3>
+<h3>Step 2: Create the Domain Controller VM</h3>
 <p>
-Using the same search bar as before, find and select the "Virtual Machines" service. We will now create the Virtual Machine that will host our implementation of osTicket. Start by selecting the "Create" button in the center of the page, then select "Azure virtual machine". Select "Active_Directory" as your Resource Group. We will name our VM "DC-1". Select Windows Server 2022 as the operating system. In order to ensure our VM runs smoothly, we will choose the 2 vcpu, 16 Gib memory size. 
+Using the same search bar as before, find and select the "Virtual Machines" service. Start by selecting the "Create" button in the center of the page, then select "Azure virtual machine". Select "Active_Directory" as your Resource Group. We will name our VM "DC-1". Make sure the resource group and all VMs within are set to the same region. Select Windows Server 2022 as the operating system. In order to ensure our VM runs smoothly, we will choose the 2 vcpu, 16 Gib memory size. Set a username and password.
 </p>
-<img src=https://i.imgur.com/vOJ5nYJ.png/>
+<img src=https://i.imgur.com/pVYqGTX.png/>
 
+<h3>Step 3: Create the Client VM</h3>
+<p>
+Repeat the steps for the Domain Controller VM. Resource Group shpuld be set to "Active_Directory". We will name our VM "DC-1". Select Windows 10 Pro as the operating system. Set a username and password. Then click on the "Networking" tab and ensure the virtual network is set to DC-1-vnet.
+</p>
+<img src=https://i.imgur.com/xCWoQ7e.png/>
 
+<h3>Step 4: </h3>
+<p>
+Within the Virtual Machine page in Azure, select the DC-1 VM. Then select "Networking" -> Network Interface(mine is called dc-1533_z1) -> IP Configurations -> ipconfig1 -> Allocation should be set to Static. Make a note of the static IP for DC-1.
+</p>
+<img src=/>
 
+<h3>Step 5: </h3>
+<p>
 
-
+</p>
+<img src=/>
 
 
 
