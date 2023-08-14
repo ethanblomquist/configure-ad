@@ -89,23 +89,46 @@ Within ADMIN right click Jane Doe -> Member Of -> Add -> Enter "domain" and Chec
 <img src=https://i.imgur.com/ytOY086.png/>
 </p>
 
-<h3>Step 5: </h3>
+<h3>Step 10: Join Client-1 to your Domain</h3>
 <p>
+We need to set the DNS server of Client-1 to use DC-1 as the image below illustrates:
+</p>
+<p>
+<img src=https://i.imgur.com/d16xd6x.png/>
+</p>
+<p>
+Return to the Networking window for Client-1 on Azure. Navigate to the Network interface -> DNS Servers -> Custom -> Enter DC-1's private IP -> Save -> Navigate back to the Client-1 VM and select Restart
+</p>
+<p>
+<img src=https://i.imgur.com/oWDbWMH.png/>
+</p>
+<p>
+Log back into Client-1 using RDP -> Right click Start -> System -> Rename this PC (advanced) -> Change... -> Domain -> mydomain.com -> Enter your domain credentials you created for DC-1 -> Restart the VM
+</p>
+<p>
+<img src=https://i.imgur.com/5xuEFD2.png/>
+</p>
+<p>
+We can now use our domain credentials (mydomain.com/jane_admin) to log into Client-1. Next, right click Start -> Sysytem -> Remote Desktop -> Select users that can remotely access this PC -> Add -> Enter Domain Users -> Check Names -> OK
+</p>
+<p>
+<img src=https://i.imgur.com/qUmt23t.png/>
+</p>
+<p>
+Ensure everything we have done is working. Return to the DC-1 VM -> Server Manager -> Active Directory Users and Computers -> mydomain.com -> Computers -> Create a new OU called CLIENTS -> Move Client-1 into the CLIENTS OU
+</p>
+<p>
+<img src=https://i.imgur.com/iJSoZUm.png/>
+</p>
+
+<h3>Step 11: </h3>
+<p>
+  Still logged into DC-1, Open Powershell ISE as an administrator(Run -> powershell_ise.exe -> ctrl+shift+OK) -> New File
   
+Using this [Github Link](https://github.com/joshmadakor1/AD_PS/blob/master/Generate-Names-Create-Users.ps1) link, copy and paste the code within the repository into Powershell. -> Run Script -> This script will create 10,000 random users that we can use to simulate an organization of real people.
 </p>
 <p>
-<img src=/>
+<img src=https://i.imgur.com/kSrJUtI.png/>
 </p>
-
-
-
-
-
-
-
-
-
-
-
 
 <h2>Deployment and Configuration Steps</h2>
