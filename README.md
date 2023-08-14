@@ -50,7 +50,6 @@ Remote Desktop Connection is a program found on Windows that allows us to remote
 <p>
 <img src=https://i.imgur.com/vRfL9WX.png/>
 </p>
-<br/>
 
 <h3>Step 6: Check connectivity with DC-1</h3>
 <p>
@@ -64,11 +63,34 @@ We'll have to access DC-1 and adjust some settings. Repeating the same process a
 <img src=https://i.imgur.com/na6hNIf.png/>
 <p>
 
+<h3>Step 7: Install Active Directory</h3>
+<p>
+On DC-1, navigate to Start -> Server Manager -> Add roles and features -> Everything can be left to default -> Server Roles -> Active Directory Services -> Accept installation of any required featues -> Select the notification flag icon -> Promote this server to a domain controller -> Add a new forest -> Enter a root domain name, i.e. mydomain.com -> Set a password for Directory Services Restore Mode -> Click "Next" through the windows, install prerequisites -> The VM will restart.
+</p>
 
+<h3>Step 8: Re-login to DC-1</h3>
+<p>
+Double check the public IP and re-login to DC-1. In order to do this we will need to edit the login cedentials. Select the small "edit" link on the Remote Desktop Connection Window. -> Use a different account -> enter the domain name you chose / the user name set up for the VM. i.e. mydomain.com/ethan -> use the same password
+</p>
+<p>
+<img src=https://i.imgur.com/5fD9qo4.png/>
+</p>
 
+<h3>Step 9: Create User Accounts in Active Directory</h3>
+<p>
+The Server manager should still be open. Navigate to Tools -> Active Directory Users and Computers
+</p>
+<p>
+<img src=/>
+</p>
 
-
-
+<h3>Step 5: </h3>
+<p>
+  
+</p>
+<p>
+<img src=/>
+</p>
 
 
 
