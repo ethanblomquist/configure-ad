@@ -31,7 +31,7 @@ Using the same search bar as before, find and select the "Virtual Machines" serv
 
 <h3>Step 3: Create the Client VM</h3>
 <p>
-Repeat the steps for the Domain Controller VM. Resource Group shpuld be set to "Active_Directory". We will name our VM "DC-1". Select Windows 10 Pro as the operating system. Set a username and password. Then click on the "Networking" tab and ensure the virtual network is set to DC-1-vnet.
+Repeat the steps for the Domain Controller VM. Resource Group should be set to "Active_Directory". We will name our VM "DC-1". Select Windows 10 Pro as the operating system. Set a username and password. Then click on the "Networking" tab and ensure the virtual network is set to DC-1-vnet.
 </p>
 <img src=https://i.imgur.com/xCWoQ7e.png/>
 
@@ -55,7 +55,7 @@ Open the command line in the Client-1 VM. Enter the "ping -t" command using the 
 </p>
 <img src=https://i.imgur.com/RScDj5A.png/>
 <p>
-We'll have to access DC-1 and adjust some settings. Repeating the same process as we used for Client-1, log into DC-1 with RDP. Find the Windows Firewall by typing "firewall" into the serach bar or "mf.msc" into the "Run" app. Select Inbound Rules -> Sort by Protocol -> Enable both copies of "Core Networking Diagnostics - ICMP Echo Request (ICMPv4-In)". The ping command we are using runs on this protocol. If you check back to the Client-1 VM, the ping command should now be recieving repsonses from DC-1. Ctrl-C will stop the ping command.
+We'll have to access DC-1 and adjust some settings. Repeating the same process as we used for Client-1, log into DC-1 with RDP. Find the Windows Firewall by typing "firewall" into the search bar or "mf.msc" into the "Run" app. Select Inbound Rules -> Sort by Protocol -> Enable both copies of "Core Networking Diagnostics - ICMP Echo Request (ICMPv4-In)". The ping command we are using runs on this protocol. If you check back to the Client-1 VM, the ping command should now be receiving responses from DC-1. Ctrl-C will stop the ping command.
 </p>
 </p>
 <img src=https://i.imgur.com/na6hNIf.png/>
@@ -63,12 +63,12 @@ We'll have to access DC-1 and adjust some settings. Repeating the same process a
 
 <h3>Step 7: Install Active Directory</h3>
 <p>
-On DC-1, navigate to Start -> Server Manager -> Add roles and features -> Everything can be left to default -> Server Roles -> Active Directory Services -> Accept installation of any required featues -> Select the notification flag icon -> Promote this server to a domain controller -> Add a new forest -> Enter a root domain name, i.e. mydomain.com -> Set a password for Directory Services Restore Mode -> Click "Next" through the windows, install prerequisites -> The VM will restart.
+On DC-1, navigate to Start -> Server Manager -> Add roles and features -> Everything can be left to default -> Server Roles -> Active Directory Services -> Accept installation of any required features -> Select the notification flag icon -> Promote this server to a domain controller -> Add a new forest -> Enter a root domain name, i.e. mydomain.com -> Set a password for Directory Services Restore Mode -> Click "Next" through the windows, install prerequisites -> The VM will restart.
 </p>
 
 <h3>Step 8: Re-login to DC-1</h3>
 <p>
-Double check the public IP and re-login to DC-1. In order to do this we will need to edit the login cedentials. Select the small "edit" link on the Remote Desktop Connection Window. -> Use a different account -> enter the domain name you chose / the user name set up for the VM. i.e. mydomain.com/ethan -> use the same password
+Double check the public IP and re-login to DC-1. In order to do this we will need to edit the login credentials. Select the small "edit" link on the Remote Desktop Connection Window. -> Use a different account -> enter the domain name you chose / the user name set up for the VM. i.e. mydomain.com/ethan -> use the same password
 </p>
 <p>
 <img src=https://i.imgur.com/5fD9qo4.png/>
@@ -81,7 +81,7 @@ The Server manager should still be open. Navigate to Tools -> Active Directory U
 <img src=https://i.imgur.com/MK7P98s.png/>
 </p>
 <p>
-Within ADMIN right click Jane Doe -> Member Of -> Add -> Enter "domain" and Check Names -> Select Domain Admins -> Apply -> Logoff of DC-1 -> Relogin using mydomoain.com/jane_admin -> Enter the password you set for Jane Doe.
+Within ADMIN right click Jane Doe -> Member Of -> Add -> Enter "domain" and Check Names -> Select Domain Admins -> Apply -> Logoff of DC-1 -> Re-login using mydomoain.com/jane_admin -> Enter the password you set for Jane Doe.
 </p>
 <p>
 <img src=https://i.imgur.com/ytOY086.png/>
@@ -107,7 +107,7 @@ Log back into Client-1 using RDP -> Right click Start -> System -> Rename this P
 <img src=https://i.imgur.com/5xuEFD2.png/>
 </p>
 <p>
-We can now use our domain credentials (mydomain.com/jane_admin) to log into Client-1. Next, right click Start -> Sysytem -> Remote Desktop -> Select users that can remotely access this PC -> Add -> Enter Domain Users -> Check Names -> OK
+We can now use our domain credentials (mydomain.com/jane_admin) to log into Client-1. Next, right click Start -> System -> Remote Desktop -> Select users that can remotely access this PC -> Add -> Enter Domain Users -> Check Names -> OK
 </p>
 <p>
 <img src=https://i.imgur.com/qUmt23t.png/>
@@ -143,7 +143,7 @@ You can observe within C:\Users that a new folder is created each time a new use
 
 <h3>Step 12: Test Common User Account Actions</h3>
 <p>
-If we return to DC-1, we can test a few functions within Active Directory in regards to users. If, for example, a user attempts too many logins and their account locks, you can navigate to the EMPLOYEE OU -> bafor.leq(Whichever user is experiencing the issue) -> Account -> Check the Unlock Account box -> Apply. You can also reset user passwords, enable or disable their account, or move them to new Organizational Unit. These functions would all be useful in a variety or organizations
+If we return to DC-1, we can test a few functions within Active Directory in regards to users. If, for example, a user attempts too many logins and their account locks, you can navigate to the EMPLOYEE OU -> bafor.leq(Whichever user is experiencing the issue) -> Account -> Check the Unlock Account box -> Apply. You can also reset user passwords, enable or disable their account, or move them to a new Organizational Unit. These functions would all be useful in a variety or organizations
 </p>
 <p>
 <img src=https://i.imgur.com/0V375YL.png/>
